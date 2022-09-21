@@ -16,14 +16,14 @@ return (
       className="h-screen w-screen   scroll-bar flex-col-center 
     dark-styles transition duration-500 overflow-x-hidden "
     >
-      <BrowserRouter basename="/gitpals">
+      <BrowserRouter >
 
         <div className="fixed top-[0px] w-[100%] z-40">
           <Toolbar />
         </div>
 
 
-        <div className="w-full h-full mt-44 ">
+        <div className="w-full h-full mt-12 ">
           <Routes>
             <Route
               path="/"
