@@ -17,10 +17,11 @@ const navigate = useNavigate()
 const [searchParams] = useSearchParams();
 const code = searchParams.get('code') as string
 const local_prov = JSON.parse(localStorage.getItem('provider') as string)
+// this hasto match what you orovided in the oauth provider , in tis case google
 let redirectUrl = 'http://localhost:3000/redirect'
 useEffect(()=>{
     if (local_prov.state !== searchParams.get("state")) {
-        let url = 'http://localhost:3000/login'
+      const url = 'http://localhost:3000/login'
         if (typeof window !== 'undefined') {
             window.location.href = url;
         }
@@ -35,6 +36,8 @@ useEffect(()=>{
             )
             .then((response) => {
                 // console.log("authentication data === ", response)
+                // udating te user rofile field in pocket base with custome data from your 
+                // oauth provider in this case the avatarUrl and name
                 client.records.update('profiles', response.user.profile?.id as string, {
                     name: response.meta.name,
                     avatarUrl: response.meta.avatarUrl,

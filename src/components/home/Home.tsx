@@ -20,7 +20,6 @@ export const Home: React.FC<HomeProps> = ({}) => {
   return (
     <div className="w-full h-screen  flex-center text-3xl">
       <div className="w-full h-full text-3xl flex-center-col">
-        HOME
         {user?.email}
         <button
           className="bg-purple-900 p-2"
