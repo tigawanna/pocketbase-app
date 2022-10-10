@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 interface ToolbarProps {
 
@@ -6,8 +7,13 @@ interface ToolbarProps {
 
 export const Toolbar: React.FC<ToolbarProps> = ({}) => {
 return (
- <div className='w-full bg-purple-900 h-10 p-2 flex-center text-xl font-bold'>
-TOOLBAR
+ <div className='w-full p-1 bg-purple-800 flex-center'>
+        <div className='w-full p-1  flex justify-between items-center'> 
+            <Link to='/'>HOME</Link>
+            <Link to='/about'>ABOUT</Link>
+    
+        </div>
+
  </div>
 );
 }

@@ -20,7 +20,6 @@ export class TheIcon extends React.Component<MyProps, MyState> {
     }
     clickAction(){
       if(this.props.iconAction){
-      console.log("click action")
       return this.props.iconAction()
       }
       return console.log("")

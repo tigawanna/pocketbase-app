@@ -21,7 +21,7 @@ const queryClient = new QueryClient(rq_config);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <QueryClientProvider client={queryClient}>
-    <ReactQueryDevtools initialIsOpen={false} position={"top-left"} />
+    <ReactQueryDevtools initialIsOpen={false} position={"bottom-right"} />
     <React.StrictMode>
       <App />
     </React.StrictMode>
