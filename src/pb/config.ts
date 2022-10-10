@@ -23,6 +23,9 @@ export interface PeepResponse {
 
 export const client = new PocketBase("http://127.0.0.1:8090");
 const redirectUrl = "http://127.0.0.1:8090/redirect.html";
+  export const getUser = async () => {
+    return await client.authStore.model;
+  };
 
 
 // export const getAdmin = async () => {

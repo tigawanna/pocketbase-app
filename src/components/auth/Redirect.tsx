@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useQueryClient } from 'react-query';
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { client } from '../../pb/config';
+import { LoadingShimmer } from '../Shared/loading/LoadingShimmer';
 
 
 interface RedirectProps {
@@ -33,18 +34,19 @@ useEffect(()=>{
             redirectUrl
             )
             .then((response) => {
-                console.log("authentication data === ", response)
+                // console.log("authentication data === ", response)
                 client.records.update('profiles', response.user.profile?.id as string, {
                     name: response.meta.name,
-                    avatarUrl: response.meta.avatarUrl
+                    avatarUrl: response.meta.avatarUrl,
+                    
                 }).then((res) => {
-                console.log(" successfully updated profi;e", res)
+                // console.log(" successfully updated profi;e", res)
 
                 }).catch((e) => {
                     console.log("error updating profile  == ", e)
                 })
                 setLoading(false)
-                console.log("client modal after logg   == ", client.authStore.model)
+                // console.log("client modal after logg   == ", client.authStore.model)
                 queryClient.setQueryData(['user'], client.authStore.model)
                 navigate('/')
 
@@ -58,9 +60,8 @@ if (user) {
     return <Navigate to="/" replace />;
 }
 return (
- <div className='w-full h-full bg-purple-900'>
-        {loading ? <div className='h-full w-full text-6xl flex-center'>
-            loading user...</div>:null}
+ <div className='w-full h-full '>
+        {loading ? <LoadingShimmer/>:null}
  </div>
 );
 }

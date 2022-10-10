@@ -1,5 +1,5 @@
 import React from "react";
-import { client, providers } from "../../pb/config";
+import { providers } from "../../pb/config";
 import { useNavigate, useHref, useLocation } from 'react-router-dom';
 import { Admin, User } from "pocketbase";
 
@@ -23,38 +23,17 @@ interface ProvType{
 export const Login: React.FC<
   LoginProps
 > = ({user}) => {
-  let provs = providers.authProviders;
+const provs = providers.authProviders;
 const navigate = useNavigate()
-console.log("user in Login.tsx  ==  ",user)
+// console.log("user in Login.tsx  ==  ",user)
 if(user?.email){
   navigate('/')
 }
-
-  //  const [provis,setProvis]=React.useState(async()=>{
-  //      return await listSignInMethods()
-  //  })
-
-  const loginWithGoogge = async () => {
-    const authData =
-      await client.users.authViaOAuth2(
-        "google",
-        "CODE",
-        "VERIFIER",
-        "REDIRECT_URL"
-      );
-    console.log(
-      "authentication data === ",
-      authData
-    );
-  };
-
-  console.log("is valid from auth store  ==  ",client.authStore.isValid);
-  
-  const startLogin = (prov:ProvType) => { localStorage.setItem("provider",JSON.stringify(prov));
+const startLogin = (prov:ProvType) => { localStorage.setItem("provider",JSON.stringify(prov));
   const redirectUrl = "http://localhost:3000/redirect";
   const url = prov.authUrl + redirectUrl;
-      console.log("prov in button === ", prov)
-      console.log("combined url ==== >>>>>>  ",url)
+      // console.log("prov in button === ", prov)
+      // console.log("combined url ==== >>>>>>  ",url)
   
     if (typeof window !== "undefined") {
       window.location.href = url;

@@ -9,19 +9,16 @@ import { Redirect } from './components/auth/Redirect';
 import { UserType } from './components/auth/types';
 import { Home } from './components/home/Home';
 import { Toolbar } from './components/toolbar/Toolbar';
-import { client } from './pb/config';
-import { LoadingShimmer } from './components/Shared/LoadingShimmer';
+import { client, getUser } from './pb/config';
+import { LoadingShimmer } from './components/Shared/loading/LoadingShimmer';
 
 
 function App() {
 
 
-  const getUser = async()=>{
-    return await client.authStore.model
-  }
 
 const userQuery = useQuery(["user"],getUser); 
-  console.log("user query App.tsx==== ", userQuery)
+  // console.log("user query App.tsx==== ", userQuery)
   
   // console.log("client authstore",client.authStore)
 const user = userQuery.data

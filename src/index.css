@@ -20,5 +20,5 @@
   @apply flex flex-col justify-center items-center
 }
 .scroll-bar {
-  @apply scrollbar-thin scrollbar-thumb-purple-600 scrollbar-track-green-500;
+  @apply scrollbar-thin scrollbar-thumb-purple-600 scrollbar-track-slate-200;
 }

@@ -3,17 +3,14 @@ import {
   useQuery,
   useQueryClient,
 } from "react-query";
-import { client } from "../../pb/config";
+import { client, getUser } from "../../pb/config";
 
 interface HomeProps {}
 
 export const Home: React.FC<HomeProps> = ({}) => {
   const queryClient = useQueryClient();
-  const getUser = async () => {
-    return await client.authStore.model;
-  };
   const userQuery = useQuery(["user"], getUser);
-  console.log("user query Home.tsx==== ", userQuery);
+//   console.log("user query Home.tsx==== ", userQuery);
 
   const logout = () => {
     client.authStore.clear();

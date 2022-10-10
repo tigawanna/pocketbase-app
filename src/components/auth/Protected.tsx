@@ -9,7 +9,7 @@ children:ReactNode
 
 export const Protected: React.FC<ProtectedProps> = ({user,children}) => {
 if(!user?.email){
-    return <Navigate to={'/login'} />
+ return <Navigate to={'/login'} />
 }
 return (
  <div className='h-full w-full'>
